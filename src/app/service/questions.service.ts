@@ -14,7 +14,7 @@ export class QuestionsService {
   }
 
   setQuestions(questionsNum: number) {
-    this._http.get('https://theory-nmfd.onrender.com/get-questions?questionNum=999').subscribe(data=>{
+    this._http.get(`https://theory-nmfd.onrender.com/question/${questionsNum}`).subscribe(data=>{
       this.questions$.next(data)
     })
   }

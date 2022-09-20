@@ -1,1 +1,5 @@
-<p>{{questions$|async|json}}</p>
+
+<input [(ngModel)]="questionNum" type="text" name="question-num">
+<button (click)="findQuestion()">חפש</button>
+<div id="question-text"></div>
+<div id="answers-text"></div>

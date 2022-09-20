@@ -7,18 +7,24 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { QuestionsBoxComponent } from './components/questions-box/questions-box.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FindQuestionComponent } from './pages/find-question/find-question.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    QuestionsBoxComponent
+    QuestionsBoxComponent,
+    FindQuestionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
