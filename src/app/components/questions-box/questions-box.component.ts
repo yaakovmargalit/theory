@@ -13,6 +13,7 @@ export class QuestionsBoxComponent implements OnInit {
   answers: any;
   question!: any;
   questionNum: number = 1;
+  anss:any[]=[]
   ngOnInit(): void {}
   findQuestion = async () => {
     await this.questionsService.setQuestions(this.questionNum);
@@ -30,6 +31,14 @@ export class QuestionsBoxComponent implements OnInit {
       const end = this.answers.indexOf('</ul>');
       let ul = this.answers.slice(start + 4, end);
       const ansArray = [];
+      let src =""
+      if(this.answers.indexOf("https")!==-1){
+        console.log(this.answers.indexOf("http"),this.answers.indexOf("jpg"));
+        
+        src = this.answers.slice(this.answers.indexOf("http"),this.answers.indexOf("jpg")+3)
+console.log(src);
+
+      }
       for (let i = 0; i < 4; i++) {
         const startLi = ul.indexOf('<li>');
         const endLi = ul.indexOf('</li>');
@@ -46,6 +55,7 @@ export class QuestionsBoxComponent implements OnInit {
         ul = ul.slice(endLi + 4, ul.length);
       }
       console.log(ansArray);
+      this.anss=ansArray
     });
   };
 }
