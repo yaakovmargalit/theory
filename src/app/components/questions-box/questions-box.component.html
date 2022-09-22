@@ -1,15 +1,45 @@
-<div  class="questions-box">
-    <div *ngIf="question" class="question">
-
-        <div>{{question.question}}</div>
-        <div></div>
-        <div class="answers">
-            <div class="answer" [ngClass]="{'correct':i+1==question.correctAnswer&&showAnswer}" *ngFor="let x of question.answers; index as i">{{i+1}}.   {{x}}</div>
+<div class="questions-box">
+  <div *ngIf="question" class="question">
+    <div class="question-image">
+        <div class="question-title">{{ question.question }}</div>
+        <div (click)="openDialog('200ms', '500ms')" class="image-box">
+            <img  [src]="question.imageSrc||'assets/images/back.png'" alt="">
         </div>
         <div class="actios">
-            <button (click)="toggleAnswer()">הצג תשובה</button>
-            <button (click)="moveQuestion.emit(1)">הבא</button>
-            <button (click)="moveQuestion.emit(0)" >הקודם</button>
-        </div>
+            <div class="show-btn" (click)="toggleAnswer()">{{showAnswer?"הסתר תשובה":"הצג תשובה"}}</div>
+            <div class="nav-btn" (click)="moveQuestion.emit(0); showAnswer = false">
+                <mat-icon  aria-hidden="false"  fontIcon="keyboard_double_arrow_right"></mat-icon>
+            </div>
+            <div class="nav-btn" (click)="moveQuestion.emit(1); showAnswer = false">
+                <mat-icon  aria-hidden="false"  fontIcon="keyboard_double_arrow_left"></mat-icon>
+            </div>
+          </div>
+          <div class="ranks">
+            <div class="rank" [ngSwitch]="rank" *ngFor="let rank of question.ranks">
+                <mat-icon *ngSwitchCase="'В'" aria-hidden="false" aria-label="Example directions_car icon" fontIcon="directions_car"></mat-icon>
+                <mat-icon *ngSwitchCase="'1'" aria-hidden="false" aria-label="Example agriculture icon" fontIcon="agriculture"></mat-icon>
+                <mat-icon *ngSwitchCase="'A'" aria-hidden="false" aria-label="Example motorcycle icon" fontIcon="motorcycle"></mat-icon>
+                <mat-icon *ngSwitchCase="'D'" aria-hidden="false" aria-label="Example directions_bus icon" fontIcon="directions_bus"></mat-icon>
+                <mat-icon *ngSwitchCase="'C'" aria-hidden="false" aria-label="Example local_shipping  icon" fontIcon="local_shipping"></mat-icon>
+                <mat-icon *ngSwitchCase="'C1'" aria-hidden="false" aria-label="Example airport_shuttle  icon" fontIcon="airport_shuttle"></mat-icon>
+              {{ rank }} 
+            </div>
+          </div>
     </div>
+    <div class="question-data">
+        <div class="answers">
+          <div
+            class="answer"
+            [ngClass]="{ correct: i + 1 == question.correctAnswer && showAnswer }"
+            *ngFor="let x of question.answers; index as i"
+          >
+            {{ i + 1 }}. {{ x }}
+          </div>
+        </div>
+
+    </div>
+
+ 
+
+  </div>
 </div>

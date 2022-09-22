@@ -19,6 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { FullScreenImageComponent } from './components/full-screen-image/full-screen-image.component';
 
 export function playerFactory() {
   return player;
@@ -34,6 +35,7 @@ export function playerFactory() {
     FindQuestionComponent,
     LayoutComponent,
     SidenavListComponent,
+    FullScreenImageComponent,
   ],
   imports: [
     BrowserModule,

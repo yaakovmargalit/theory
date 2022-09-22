@@ -16,11 +16,13 @@ export class FindQuestionComponent implements OnInit {
   question: any;
   questionNum: number = 1;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.findQuestion(1)
+  }
 
-  findQuestion = async () => {
+  findQuestion = async (num?:number) => {
     console.log('get question');
-    await this.questionsService.setQuestions(this.questionNum);
+    await this.questionsService.setQuestions(num||this.questionNum);
     this.questions$.subscribe((val) => {
       this.question = val[0];
     });
