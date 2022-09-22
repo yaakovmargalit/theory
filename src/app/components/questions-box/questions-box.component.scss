@@ -1,4 +1,8 @@
 .questions-box {
+    .question-title{
+        font-family: ploniMedium;
+        font-size: 25px;
+    }
   .question {
     display: flex;
     width: 100%;
@@ -42,10 +46,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    .question-title{
-        font-family: ploniMedium;
-        font-size: 25px;
-    }
+
     .image-box{
         img{
             width: 400px;
