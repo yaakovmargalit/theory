@@ -65,6 +65,9 @@
       </div>
     </div>
     <div class="question-data">
+        <div (click)="openDialog('200ms', '500ms')" class="image-box-mobile">
+            <img [src]="question.imageSrc || 'assets/images/back.png'" alt="" />
+          </div>
       <div class="answers">
         <div
           class="answer"
