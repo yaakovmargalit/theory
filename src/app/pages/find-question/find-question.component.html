@@ -1,2 +1,11 @@
-<p>find-question works!</p>
-<questions-box></questions-box>
+<div class="find-question">
+    <form class="search-form" dir='rtl'>
+        <mat-form-field  class="example-full-width" >
+            <mat-label>מספר שאלה</mat-label>
+            <input [(ngModel)]="questionNum" type="text" name="question-num"  matInput>
+        </mat-form-field>
+        <button (click)="findQuestion()" mat-raised-button>חפש</button>
+    </form>
+    <questions-box (moveQuestion)="moveQuestion($event)" [question]="question"></questions-box>
+
+</div>

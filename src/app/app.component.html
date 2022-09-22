@@ -1,3 +1,17 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<layout>
+    <mat-sidenav-container >
+      <mat-sidenav from="end" #sidenav  role="navigation">
+        <sidenav-list (sidenavClose)="sidenav.close()"></sidenav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+        <main>
+          <router-outlet></router-outlet>
+          <div *ngIf="isLoading$|async" class="loader">
+            <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+        </div>
+        </main>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+  </layout>

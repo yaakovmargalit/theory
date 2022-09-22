@@ -1,4 +1,16 @@
+@font-face {
+    font-family: ploni;
+    src: url(assets/fonts/Ploni/Ploni-Regular-AAA.ttf) format("opentype");
+  }
+@font-face {
+    font-family: ploniMedium;
+    src: url(assets/fonts/Ploni/Ploni-Medium-AAA.ttf) format("opentype");
+  }
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
+*{
+    box-sizing: border-box;
+    direction: rtl;
+    font-family: ploni;
+}
+html, body {margin: 0; height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,8 +1,15 @@
-<div class="questions-box">
+<div  class="questions-box">
+    <div *ngIf="question" class="question">
 
-    <input [(ngModel)]="questionNum" type="text" name="question-num">
-    <button (click)="findQuestion()">חפש</button>
-    <div id="question-text"></div>
-    <div id="answers-text"></div>
-    <p *ngFor="let x of anss">{{x}}</p>
+        <div>{{question.question}}</div>
+        <div></div>
+        <div class="answers">
+            <div class="answer" [ngClass]="{'correct':i+1==question.correctAnswer&&showAnswer}" *ngFor="let x of question.answers; index as i">{{i+1}}.   {{x}}</div>
+        </div>
+        <div class="actios">
+            <button (click)="toggleAnswer()">הצג תשובה</button>
+            <button (click)="moveQuestion.emit(1)">הבא</button>
+            <button (click)="moveQuestion.emit(0)" >הקודם</button>
+        </div>
+    </div>
 </div>

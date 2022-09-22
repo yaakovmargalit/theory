@@ -10,6 +10,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { FindQuestionComponent } from './pages/find-question/find-question.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatTabsModule} from '@angular/material/tabs';
+import {LayoutModule} from '@angular/cdk/layout';
+import { MaterialModule } from './material/material.module';
+import { LayoutComponent } from './layout/layout.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return player;
+}
+
 
 @NgModule({
   declarations: [
@@ -17,14 +31,20 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     QuestionsBoxComponent,
-    FindQuestionComponent
+    FindQuestionComponent,
+    LayoutComponent,
+    SidenavListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule,
+    FormsModule,
+    MaterialModule,
+    LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]

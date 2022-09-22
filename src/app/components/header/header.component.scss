@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+mat-toolbar{
+    background-color: #1f5d4d;
+}
+ 
+a:hover, a:active{
+    color: lightgray;
+}
+li{
+    margin-left: 20px;
+}
+ 
+.navigation-items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ img{
+    width: 100px;
+    justify-self: center;
+ }
+mat-toolbar{
+    direction: ltr;
+    display:flex;
+    justify-content: space-between;
+}
+ 
+@media(max-width: 959px){
+    mat-toolbar{
+        border-radius: 0px;
+    }
+}
