@@ -10,7 +10,7 @@ import { AppService } from './service/app.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'theory';
+  title = 'תאוריה אונליין';
   constructor(private _appServices: AppService) {}
   isLoading$: Observable<boolean> = this._appServices.isLoading$;
   options: AnimationOptions = {
