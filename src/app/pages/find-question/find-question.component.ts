@@ -15,18 +15,23 @@ export class FindQuestionComponent implements OnInit {
   questions$: Observable<any> = this.questionsService.getQuestion();
   question: any;
   questionNum: number = 1;
+  data!:any[]
 
   ngOnInit(): void {
-    this.findQuestion(1)
+    // this.findQuestion(1)
+    this.questionsService.getQuestionLocal().subscribe(data => {
+      console.log(data);
+      this.data=data
+  });
   }
 
-  findQuestion = async (num?:number) => {
-    console.log('get question');
-    await this.questionsService.setQuestions(num||this.questionNum);
-    this.questions$.subscribe((val) => {
-      this.question = val[0];
-    });
-  };
+  // findQuestion = async (num?:number) => {
+  //   console.log('get question');
+  //   await this.questionsService.setQuestions(num||this.questionNum);
+  //   this.questions$.subscribe((val) => {
+  //     this.question = val[0];
+  //   });
+  // };
 
   options: AnimationOptions = {
     path: '/assets/loader.json',
@@ -36,6 +41,6 @@ export class FindQuestionComponent implements OnInit {
   }
   moveQuestion = (type: number) => {
     type?this.questionNum++:this.questionNum--
-    this.findQuestion()
+    // this.findQuestion()
   };
 }

@@ -9,6 +9,9 @@ import { AppService } from './app.service';
 export class QuestionsService {
   private questions$: BehaviorSubject<any> = new BehaviorSubject({});
   constructor(private _http: HttpClient,private _appService:AppService) {}
+  public getQuestionLocal(): Observable<any> {
+    return this._http.get("../assets/problems.json");
+}
 
   getQuestion(): Observable<any> {
     return this.questions$.asObservable();
