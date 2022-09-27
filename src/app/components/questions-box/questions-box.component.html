@@ -65,7 +65,7 @@
       </div>
     </div>
     <div class="question-data">
-        <div (click)="openDialog('200ms', '500ms')" class="image-box-mobile">
+        <div (click)="openDialog('200ms', '500ms')" class="image-box-mobile" [ngClass]="{'image-box-mobile-none':!question.imageSrc}">
             <img [src]="question.imageSrc || 'assets/images/back.png'" alt="" />
           </div>
       <div class="answers">
